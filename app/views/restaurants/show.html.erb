@@ -1,0 +1,19 @@
+<h1><strong><%= @restaurant.name %></strong></h1>
+
+<%= render @restaurant %>
+
+<div id="navbuttons">
+  <%= link_to edit_restaurant_path(@restaurant) do %>
+    <p><i class="fa-solid fa-pen"></i>Edit restaurant</p>
+  <% end %>
+
+  <%= link_to restaurant_path(@restaurant),
+            method: :delete,
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+    <p><i class="fa-solid fa-trash"></i>Delete restaurant</p>
+  <% end %>
+
+  <%= link_to restaurants_path do %>
+    <p><i class="fa-solid fa-rotate-left"></i>Back to restaurants</p>
+  <% end %>
+</div>

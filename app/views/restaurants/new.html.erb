@@ -1,0 +1,19 @@
+<h1>New Restaurant</h1>
+<%= render "form", restaurant: @restaurant, action_text: "Create Restaurant" %>
+
+<% if @restaurant.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="return row mt-3">
+  <%= link_to restaurants_path do %>
+    <p><i class="fa-solid fa-rotate-left "></i>Back to restaurants</p>
+  <% end %>
+</div>

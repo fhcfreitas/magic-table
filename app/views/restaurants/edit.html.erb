@@ -1,0 +1,8 @@
+<h1>Edit Restaurant</h1>
+<%= render "form", restaurant: @restaurant, action_text: "Edit Restaurant" %>
+
+<div class="return row mt-3">
+  <%= link_to restaurant_path(@restaurant) do %>
+    <p><i class="fa-solid fa-rotate-left "></i>Back to restaurant</p>
+  <% end %>
+</div>
