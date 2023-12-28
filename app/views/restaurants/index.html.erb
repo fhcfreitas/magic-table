@@ -8,6 +8,8 @@
   </ul>
 </div>
 
-<%= link_to new_restaurant_path do %>
+<% if policy(Restaurant).new? %>
+  <%= link_to new_restaurant_path do %>
     <p><i class="fa-solid fa-plus"></i>Add new restaurant</p>
+  <% end %>
 <% end %>
