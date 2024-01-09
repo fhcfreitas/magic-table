@@ -37,6 +37,8 @@ class ApplicationPolicy
   end
 
   class Scope
+    attr_reader :user, :scope
+
     def initialize(user, scope)
       @user = user
       @scope = scope
@@ -46,8 +48,5 @@ class ApplicationPolicy
       raise NotImplementedError, "You must define #resolve in #{self.class}"
     end
 
-    private
-
-    attr_reader :user, :scope
   end
 end
