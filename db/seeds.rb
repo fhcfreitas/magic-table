@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require "open-uri"
+Restaurant.destroy_all
+User.destroy_all
+user = User.create(email: "fhcfreitas@email.com", password: "123456")
+User.create(email: "visitor@email.com", password: "123456")
+Restaurant.create(name: "Elias", location: "Botafogo", address: "Rua São Clemente, 92", category: "Buffet", description: "Arabic buffet", user_id: user.id)
+Restaurant.create(name: "Tropikus", location: "Ipanema", address: "Rua Visconde de Pirajá, 111", category: "Buffet", description: "Best buffet in Ipanema", user_id: user.id)

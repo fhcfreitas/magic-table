@@ -5,4 +5,5 @@ class Restaurant < ApplicationRecord
   validates :category, inclusion: { in: CATEGORY }
 
   belongs_to :user
+  has_many :rentals, dependent: :destroy
 end
