@@ -2,6 +2,10 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_restaurant, only: %i[show edit update destroy]
 
+  # Pundit: allow-list approach
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+
   def index
     @restaurants = policy_scope(Restaurant)
   end
@@ -51,5 +55,9 @@ class RestaurantsController < ApplicationController
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
+  end
+
+  def skip_pundit?
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 end

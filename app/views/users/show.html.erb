@@ -1,0 +1,35 @@
+<h1>Profile Page</h1>
+<p>E-mail: <%= @user.email %></p>
+
+<div>
+  <% @user.rents_as_owner.each do |rent| %>
+
+    <p>Restaurant: <%= rent.restaurant.name %> - <%= rent.restaurant.location %></p>
+    <p>Reservation date: <%= rent.reservation_date %></p>
+    <p>Client e-mail: <%=rent.user.email%></p>
+    <p>Status: <u><%= rent.status %></u></p>
+
+    <% if rent.status == "pending" %>
+
+      <div>
+        <%= button_to "Accept", accept_rental_path(rent), method: :patch, class: "btn btn-primary" %>
+        <%= button_to "Decline", decline_rental_path(rent), method: :patch, class: "btn btn-danger", style: "margin-left: 10px;" %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div>
+    <h2>Your products</h2>
+  </div>
+  <div>
+    <% @user.restaurants.each do |restaurant| %>
+      <p>Name: <%= restaurant.name %></p>
+      <p>Location: <%= restaurant.location %></p>
+      <p>Address: <%= restaurant.address %></p>
+    <% end %>
+  </div>
+
+    <div>
+      <%= link_to "Add Restaurant", new_restaurant_path, class: "btn btn-primary" %>
+    </div>
+</div>

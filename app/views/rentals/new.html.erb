@@ -1,0 +1,13 @@
+<div class="container col-12 mt-4">
+  <h1>Make your reservation</h1>
+  <%= simple_form_for ([@restaurant, @rental]) do |f| %>
+    <%= f.input :reservation_date %>
+    <%= f.submit :submit %>
+  <% end %>
+
+  <div class="return row mt-3">
+    <%= link_to restaurant_path(@restaurant) do %>
+      <p><i class="fa-solid fa-rotate-left "></i>Back to restaurant</p>
+    <% end %>
+  </div>
+</div>
