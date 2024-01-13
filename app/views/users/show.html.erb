@@ -19,7 +19,7 @@
   <% end %>
 
   <div>
-    <h2>Your products</h2>
+    <h2>Your restaurants</h2>
   </div>
   <div>
     <% @user.restaurants.each do |restaurant| %>
@@ -29,7 +29,10 @@
     <% end %>
   </div>
 
-    <div>
-      <%= link_to "Add Restaurant", new_restaurant_path, class: "btn btn-primary" %>
+  <div data-controller="toggle">
+    <button data-action="click->toggle#interact" class="btn btn-outline-primary">Add New Restaurant</button>
+    <div data-toggle-target="togglableElement" class="d-none">
+      <%= render "restaurants/form", restaurant: @restaurant  %>
     </div>
+  </div>
 </div>

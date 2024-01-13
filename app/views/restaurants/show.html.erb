@@ -2,6 +2,10 @@
 
 <%= render @restaurant %>
 
+<% if user_signed_in? && @restaurant.user != @user %>
+  <%= render 'rentals/new' %>
+<% end %>
+
 <div id="navbuttons">
   <% if policy(@restaurant).edit? %>
     <%= link_to edit_restaurant_path(@restaurant) do %>

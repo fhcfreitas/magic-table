@@ -1,8 +1,8 @@
 <div class="container col-12 mt-4">
-  <h1>Make your reservation</h1>
+<h3>Make your reservation</h3>
   <%= simple_form_for ([@restaurant, @rental]) do |f| %>
     <%= f.input :reservation_date %>
-    <%= f.submit :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 
   <div class="return row mt-3">
