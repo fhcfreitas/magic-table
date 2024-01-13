@@ -11,6 +11,8 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @user = current_user if user_signed_in?
+    @rental = Rental.new
   end
 
   def new

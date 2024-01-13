@@ -1,0 +1,5 @@
+<h3>Make your reservation</h3>
+  <%= simple_form_for ([@restaurant, @rental]) do |f| %>
+    <%= f.input :reservation_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
